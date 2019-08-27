@@ -1,0 +1,45 @@
+
+R version 3.6.1 (2019-07-05) -- "Action of the Toes"
+Copyright (C) 2019 The R Foundation for Statistical Computing
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> makeCacheMatrix <- function(x = matrix()) {
++     inv <- NULL
++     set <- function(y) {
++             x <<- y
++             inv <<- NULL
++     }
++     get <- function() x
++     setInverse <- function(inverse) inv <<- inverse
++     getInverse <- function() inv
++     list(set = set,
++          get = get,
++          setInverse = setInverse,
++          getInverse = getInverse)
++ }
+> mat <- makeCacheMatrix()
+> 
+> mat$set(matrix(data = (1:10), nrow = 5, ncol = 2))
+> mat$get()
+     [,1] [,2]
+[1,]    1    6
+[2,]    2    7
+[3,]    3    8
+[4,]    4    9
+[5,]    5   10
+> save.image("C:\\Users\\pratzzz\\Documents\\R\\assignment lexical scoping")
+> 
